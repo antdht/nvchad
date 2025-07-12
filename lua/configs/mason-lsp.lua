@@ -7,6 +7,8 @@ require("mason-lspconfig").setup {
     "hyprls",
     "vue_ls",
     "vtsls",
+    "tailwindcss"
   },
   automatic_installation = true, -- ensures Mason auto-installs servers listed above
+  automatic_enable = true,
 }
