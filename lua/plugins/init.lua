@@ -5,12 +5,37 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    opts = function()
+      return require "configs.cmp"
     end,
+  },
+
+  {
+    "mason-org/mason-lspconfig.nvim",
+    lazy = false,
+    config = function()
+      require "configs.mason-lsp"
+    end,
+    dependencies = {
+      {
+        "mason-org/mason.nvim",
+        cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonInstallAll" },
+        lazy = false,
+        opts = function()
+          return require "nvchad.configs.mason"
+        end,
+      },
+      {
+        "neovim/nvim-lspconfig",
+        lazy = false,
+        config = function()
+          require "configs.lspconfig"
+        end,
+      },
+    },
   },
 
   -- test new blink
@@ -52,5 +77,16 @@ return {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
+  },
+
+  -- Can be good to add Trouble ()(folke/trouble.nvim)
+  {
+    "folke/todo-comments.nvim",
+    event = "BufReadPost",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    -- config = function()
+    --   require "configs.todo"
+    -- end,
   },
 }
