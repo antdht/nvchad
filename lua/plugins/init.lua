@@ -79,6 +79,25 @@ return {
     },
   },
 
+  {
+    "lervag/vimtex",
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    lazy = false,
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = "mupdf"
+      vim.g["vimtex_quickfix_mode"] = 1
+      vim.g.maplocalleader = "\\"
+      vim.g["vimtex_log_ignore"] = { -- Error suppression:
+        "Underfull",
+        "Overfull",
+        "specifier changed to",
+        "Token not allowed in a PDF string",
+        "Package caption Warning: The option `hypcap=true' will be ignored",
+      }
+    end,
+  },
+
   -- Can be good to add Trouble ()(folke/trouble.nvim)
   {
     "folke/todo-comments.nvim",
