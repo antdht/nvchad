@@ -1,13 +1,14 @@
 require("mason-lspconfig").setup {
   ensure_installed = {
-    "lua_ls",
-    "html",
     "cssls",
-    "pyright",
+    "html",
     "hyprls",
+    "lua_ls",
+    "pyright",
+    "rust_analyzer",
+    "tailwindcss",
     "vue_ls",
-    "vtsls",
-    "tailwindcss"
+    "vtsls"
   },
   automatic_installation = true, -- ensures Mason auto-installs servers listed above
   automatic_enable = true,
