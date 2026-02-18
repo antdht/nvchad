@@ -9,7 +9,10 @@ require "nvchad.options"
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/lua_snippets"
 
 vim.filetype.add {
-  extension = { rasi = "rasi" },
+  extension = {
+    rasi = "rasi",
+    ino = "cpp"
+  },
   pattern = {
     [".*/waybar/config"] = "jsonc",
     [".*/kitty/*.conf"] = "bash",

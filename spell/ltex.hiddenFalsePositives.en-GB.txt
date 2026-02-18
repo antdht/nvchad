@@ -1,0 +1,1 @@
+{"rule":"CLOSE","sentence":"^\\QCan we securely manage smart agricultural systems using CHERIoT How close to true end-to-end security guarantees and availability requirements can we get Securely managing smart agricultural systems using CHERIoT\\E$"}

@@ -81,6 +81,11 @@ return {
 
   -- Can be good to add Trouble ()(folke/trouble.nvim)
   {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+  },
+  {
     "folke/todo-comments.nvim",
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -103,6 +108,20 @@ return {
     -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
-    }
+    },
+  },
+
+  -- Latex things
+  {
+    "lervag/vimtex",
+    lazy = false, -- don't lazy load
+    init = function()
+      require "configs.vimtex"
+    end,
+  },
+  {
+    "barreiroleo/ltex_extra.nvim",
+    ft = { "markdown", "tex" },
+    dependencies = { "neovim/nvim-lspconfig" },
   },
 }

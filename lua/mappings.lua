@@ -3,6 +3,13 @@ local ls = require "luasnip"
 
 local map = vim.keymap.set
 
+-- global lsp mappings
+map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Lsp floating diagnostics" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Lsp prev diagnostic" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Lsp next diagnostic" })
+map("n", "<leader>,", vim.diagnostic.setloclist, { desc = "Lsp diagnostic loclist" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp Code Action" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jk", "<ESC>")
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "quit" })
@@ -37,6 +44,24 @@ end, { desc = "UI Call Huefy" })
 vim.keymap.set("n", "<leader>s", function()
   require("minty.shades").open()
 end, { desc = "UI Call Shades" })
+
+-- Trouble nvim mappings
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Toggle diagnostics" })
+map(
+  "n",
+  "<leader>xX",
+  "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+  { desc = "Trouble Toggle diagnostics (buffer)" }
+)
+map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Trouble Symbols" })
+map(
+  "n",
+  "<leader>cl",
+  "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+  { desc = "Trouble LSP Definitions / references / ..." }
+)
+map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Trouble Location List" })
+map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Trouble Quickfix List" })
 
 -- Luasnip
 map({ "i", "s" }, "jk", function()
