@@ -1,1 +1,4 @@
 {"rule":"CLOSE","sentence":"^\\QCan we securely manage smart agricultural systems using CHERIoT How close to true end-to-end security guarantees and availability requirements can we get Securely managing smart agricultural systems using CHERIoT\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QC/C++ for CHERIoT MicroPython Rust Operating system.\\E$"}
+{"rule":"SERIAL_COMMA_ON","sentence":"^\\QHere, end-to-end security refers to what Trusted execution environments typically provide, namely authentic execution and attestation, secure deployment, data and code isolation and secure communications.\\E$"}
+{"rule":"SERIAL_COMMA_ON","sentence":"^\\QEnd-to-end security refers to what Trusted execution environments typically provide, namely authentic execution and attestation, secure deployment, data and code isolation and secure communications.\\E$"}

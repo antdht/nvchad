@@ -9,6 +9,14 @@ map("n", "[d", vim.diagnostic.goto_prev, { desc = "Lsp prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Lsp next diagnostic" })
 map("n", "<leader>,", vim.diagnostic.setloclist, { desc = "Lsp diagnostic loclist" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp Code Action" })
+-- map("n", "gs", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
+map("n", "<leader>gs", function()
+  vim.lsp.buf.signature_help { border = "double" } -- Options: "single", "double", "rounded", "solid", "shadow"
+end, { desc = "LSP signature help" })
+
+map("i", "<C-g>", function()
+  vim.lsp.buf.signature_help { border = "double" } -- Options: "single", "double", "rounded", "solid", "shadow"
+end, { desc = "LSP signature help" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jk", "<ESC>")
@@ -38,12 +46,12 @@ map("n", "<leader>fn", function()
 end, { desc = "Telescope Show notifications" })
 
 -- Ui
-vim.keymap.set("n", "<leader>h", function()
-  require("minty.huefy").open()
-end, { desc = "UI Call Huefy" })
-vim.keymap.set("n", "<leader>s", function()
-  require("minty.shades").open()
-end, { desc = "UI Call Shades" })
+-- vim.keymap.set("n", "<leader>h", function()
+--   require("minty.huefy").open()
+-- end, { desc = "UI Call Huefy" })
+-- vim.keymap.set("n", "<leader>s", function()
+--   require("minty.shades").open()
+-- end, { desc = "UI Call Shades" })
 
 -- Trouble nvim mappings
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble Toggle diagnostics" })

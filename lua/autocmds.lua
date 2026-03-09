@@ -37,3 +37,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "QuitPre" }, {
     end
   end,
 })
+
+-- Show signature help on cursor hold
+-- vim.api.nvim_create_autocmd("CursorHoldI", {
+--   callback = function()
+--     vim.lsp.buf.signature_help()
+--   end,
+-- })

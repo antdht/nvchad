@@ -7,7 +7,11 @@ local M = {}
 
 M.base46 = {
   theme = "catppuccin",
-  transparency = true,
+  theme_toggle = {
+    "catppuccin",
+    "catppuccin-latte",
+  },
+  -- transparency = true,
   statusline = {
     theme = "default",
     separator_style = "default",
@@ -64,6 +68,10 @@ M.ui = {
   tabufline = {
     lazyload = false,
   },
+  cmp = {
+    style = "default",
+  },
+  lsp = { signature = true },
 }
 
 return M

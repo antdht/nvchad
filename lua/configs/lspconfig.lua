@@ -126,7 +126,7 @@ vim.lsp.config("ltex_plus", {
       enabled = { "latex", "tex", "bib", "markdown" },
       additionalRules = {
         enablePickyRules = true,
-        motherTongue = "fr",
+        -- motherTongue = "fr",
       },
       latex = {
         commands = {

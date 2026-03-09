@@ -15,6 +15,6 @@ local map = vim.keymap.set
 map({ "n", "v" }, "<Down>", "gj", { desc = "Move down visually" })
 map({ "n", "v" }, "<Up>", "gk", { desc = "Move up visually" })
 
--- Optional: Do the same for j and k keys (standard vim navigation)
+-- Do the same for j and k keys (standard vim navigation)
 map({ "n", "v" }, "j", "gj", { desc = "Move down visually" })
 map({ "n", "v" }, "k", "gk", { desc = "Move up visually" })

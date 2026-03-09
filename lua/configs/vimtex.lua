@@ -6,6 +6,7 @@ vim.g["vimtex_quickfix_mode"] = 1
 
 vim.g.vimtex_quickfix_ignore_filters = {
   "Package lipsum Warning",
+  "Overfull",
 }
 
 -- init = function()

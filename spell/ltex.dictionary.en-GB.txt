@@ -2,3 +2,10 @@ Mühlberg
 CHERIoT
 Dhainaut
 SotA
+Markowitch
+Goossens
+Dricot
+RTOS
+Dragomir
+Milojevic
+CHERIoT-RTOS
