@@ -50,4 +50,9 @@ return {
   s({ trig = "facr", dscr = "Expands 'facr' into \\acrfull{}" }, { t "\\acrfull{", i(1), t "}" }),
   s({ trig = "lacr", dscr = "Expands 'lacr' into \\acrlong{}" }, { t "\\acrlong{", i(1), t "}" }),
   s({ trig = "sacr", dscr = "Expands 'sacr' into \\acrshort{}" }, { t "\\acrshort{", i(1), t "}" }),
+
+  -- Misc
+  s({ trig = "emph", dscr = "Expands 'emph' into \\emph{}" }, { t "\\emph{", i(1), t "}" }),
+  s({ trig = "ref", dscr = "Expands 'ref' into \\ref{}" }, { t "\\ref{", i(1), t "}" }),
+  s({ trig = "mcal", dscr = "Expands 'mcal' into $\\mathcal{}$" }, { t "$\\mathcal{", i(1), t "}$" }),
 }

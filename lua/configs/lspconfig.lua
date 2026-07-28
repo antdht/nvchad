@@ -63,18 +63,17 @@ vim.lsp.config("vue_ls", {
 })
 
 -- clangd config, more especially for cheriot
+-- `cmd` is a function so the binary is chosen per client-start, against the
+-- buffer's resolved project root, instead of nvim's launch-time cwd.
 vim.lsp.config("clangd", {
-  cmd = {
-    (function()
-      local cwd = vim.fn.getcwd()
-      if cwd:find "/home/gzeviere/Documents/Thesis/cheriot%-sim" then
-        return "/home/gzeviere/Documents/Thesis/cheriot-sim/builds/cheriot-llvm/bin/clangd"
-      end
-      return "clangd"
-    end)(),
-    "--background-index",
-    "--clang-tidy",
-  },
+  cmd = function(dispatchers, config)
+    local root = config.root_dir or vim.fn.getcwd()
+    local clangd = "clangd"
+    if root:find "/home/gzeviere/Documents/Thesis/cheriot%-sim" then
+      clangd = "/home/gzeviere/Documents/Thesis/cheriot-sim/sonata-software/cheriot-sdk/cheriot-llvm/bin/clangd"
+    end
+    return vim.lsp.rpc.start({ clangd, "--background-index", "--clang-tidy" }, dispatchers)
+  end,
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
   root_markers = { ".git", "compile_commands.json", "compile_flags.txt" },
 })
@@ -109,7 +108,7 @@ vim.lsp.config("vtsls", {
 ---@class vim.lsp.ClientConfig
 vim.lsp.config("ltex_plus", {
   capabilities = lsp_defaults.capabilities,
-  cmd = { "ltex-ls-plus" }, -- Use ltex-ls-plus command
+  cmd = { "ltex-ls-plus" },
   filetypes = { "tex", "bib", "markdown", "latex" },
   root_markers = { ".git", ".latexmkrc", "texput.tex" },
   on_attach = function(client, bufnr)
@@ -126,7 +125,6 @@ vim.lsp.config("ltex_plus", {
       enabled = { "latex", "tex", "bib", "markdown" },
       additionalRules = {
         enablePickyRules = true,
-        -- motherTongue = "fr",
       },
       latex = {
         commands = {
@@ -138,7 +136,32 @@ vim.lsp.config("ltex_plus", {
           ["\\RequirePackage[]{}"] = "ignore",
           ["\\LoadClass[]{}"] = "ignore",
         },
+        environments = {
+          ["cheriotc"] = "ignore",
+        },
       },
+    },
+  },
+})
+
+-- texlab configuration for LaTeX
+---@module "vim.lsp.client"
+---@class vim.lsp.ClientConfig
+vim.lsp.config("texlab", {
+  capabilities = lsp_defaults.capabilities,
+  cmd = { "texlab" },
+  filetypes = { "tex", "plaintex", "bib" },
+  root_markers = { ".git", ".latexmkrc", "texput.tex" },
+  settings = {
+    texlab = {
+      build = {
+        onSave = false, -- set true if you want texlab to build on save
+      },
+      forwardSearch = {
+        -- fill in if you use SyncTeX / a PDF viewer
+      },
+      -- these two make \label / \ref get inlay hints (optional but nice)
+      labels = {},
     },
   },
 })

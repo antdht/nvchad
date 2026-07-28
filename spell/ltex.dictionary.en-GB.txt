@@ -9,3 +9,26 @@ RTOS
 Dragomir
 Milojevic
 CHERIoT-RTOS
+cheriot
+cheri
+deallocated
+toolchain
+microarchitectural
+VeriCHERI
+dynamicity
+tcb
+mmio
+compromised os
+io
+deployer
+rng
+GPIO
+sgx
+Sancus
+TrustZone
+testbed
+libhydrogen
+deauthentication
+plantnode
+distinguishers
+distinguisher

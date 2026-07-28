@@ -9,6 +9,7 @@ require("mason-lspconfig").setup {
     "rust_analyzer",
     "stylua",
     "tailwindcss",
+    "texlab",
     "vue_ls",
     "vtsls",
   },

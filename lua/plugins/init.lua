@@ -43,6 +43,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     opts = require "configs.nvim-treesitter",
   },
   {
